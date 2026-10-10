@@ -14,7 +14,7 @@ public final class InputValidator {
 
     public static String optionalEmail(String email) {
         String cleaned = email == null ? "" : email.trim();
-        if (!cleaned.isEmpty() && !cleaned.matches("^[^@ ]+@[^@ ]+\\.[^@ ]+$")) {
+        if (!cleaned.isEmpty() && !cleaned.matches("^[A-Za-z0-9_%+\\-]+(?:\\.[A-Za-z0-9_%+\\-]+)*@[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?(?:\\.[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?)+$")) {
             throw new InvalidInputException("Enter a valid email or leave it blank.");
         }
         return cleaned;
