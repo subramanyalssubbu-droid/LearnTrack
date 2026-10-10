@@ -45,6 +45,7 @@ public class EnrollmentService {
         return enrollment;
     }
     public void changeStatus(int id, EnrollmentStatus newStatus) {
+        if (newStatus == null) throw new InvalidInputException("Enrollment status cannot be null.");
         Enrollment enrollment = findEnrollmentById(id);
         if (newStatus == EnrollmentStatus.ACTIVE)
             throw new InvalidInputException("Use enrollStudent to create an active enrollment.");
