@@ -5,7 +5,10 @@ import java.util.ArrayList;
 
 public class EnrollmentRepository {
     private final ArrayList<Enrollment> enrollments = new ArrayList<>();
-    public void save(Enrollment enrollment) { enrollments.add(enrollment); }
+    public void save(Enrollment enrollment) {
+        if (enrollment == null) throw new IllegalArgumentException("Enrollment cannot be null.");
+        enrollments.add(enrollment);
+    }
     public Enrollment findById(int id) {
         for (Enrollment enrollment : enrollments) if (enrollment.getId() == id) return enrollment;
         return null;
